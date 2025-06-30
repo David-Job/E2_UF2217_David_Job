@@ -23,7 +23,7 @@
                 <email>rortiz@gmail.com</email>
                 <telefono>797605910</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento>D002</departamento>
         </empleado>
 
         <empleado codigo="E003">
@@ -33,7 +33,7 @@
                 <email>necan@outlook.com</email>
                 <telefono>624305240</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento>D003</departamento>
         </empleado>
 
         <empleado codigo="E004">
@@ -43,7 +43,7 @@
                 <email>af@gmail.com</email>
                 <telefono>848281695</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento>D004</departamento>
         </empleado>
 
         <empleado codigo="E005">
@@ -63,7 +63,7 @@
                 <email>lsal@yandex.com</email>
                 <telefono>773034987</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento>D002</departamento>
         </empleado>
 
         <empleado codigo="E007">
@@ -73,7 +73,7 @@
                 <email>cgut@protonmail.com</email>
                 <telefono>801667731</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento>D003</departamento>
         </empleado>
 
         <empleado codigo="E008">
@@ -83,7 +83,7 @@
                 <email>rag@hotmail.com</email>
                 <telefono>720216041</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento>D004</departamento>
         </empleado>
 
         <empleado codigo="E009">
@@ -103,7 +103,7 @@
                 <email>briandg@live.com</email>
                 <telefono>607366967</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento>D002</departamento>
         </empleado>
 
     </empleados>
@@ -189,6 +189,8 @@
                 <empleado>E001</empleado>
                 <empleado>E005</empleado>
                 <empleado>E009</empleado>
+                <empleado>C001</empleado>
+                <empleado>C005</empleado>
             </empleados>
             <direccion>
                 <calle>Colonia Inés Ulibarri</calle>
@@ -204,6 +206,8 @@
                 <empleado>E002</empleado>
                 <empleado>E006</empleado>
                 <empleado>E010</empleado>
+                <empleado>C002</empleado>
+                <empleado>C006</empleado>
             </empleados>
             <direccion>
                 <calle>Salida Luis</calle>
@@ -218,6 +222,7 @@
             <empleados>
                 <empleado>E003</empleado>
                 <empleado>E007</empleado>
+                <empleado>C003</empleado>
             </empleados>
             <direccion>
                 <calle>Muelle Claudio Tapia</calle>
@@ -232,6 +237,7 @@
             <empleados>
                 <empleado>E004</empleado>
                 <empleado>E008</empleado>
+                <empleado>C004</empleado>
             </empleados>
             <direccion>
                 <calle>Extrarradio Gloria Palomino</calle>
