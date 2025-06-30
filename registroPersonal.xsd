@@ -8,45 +8,39 @@
 
     <!-- Definición de tipos -->
 
-    <xs:simpleType name="EmailSimple">
+    <xs:simpleType name="Email">
         <xs:restriction base="xs:string">
             <xs:pattern value="[a-zA-Z0-9\-._]+\@[a-z]+\.[a-z]+" />
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="TelefonoSimple">
+    <xs:simpleType name="Telefono">
         <xs:restriction base="xs:string">
             <xs:pattern value="[0-9]{9}" />
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="CodigoSimple">
+    <xs:simpleType name="NombrePropio">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[ECD][0-9]{3}" />
+            <xs:pattern value="[A-ZÁ-Ú][a-zá-ú]+( [A-ZÁ-Ú][a-zá-ú]+)*" />
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="NombreSimple">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="[A-Z][a-z]+( [A-Z][a-z]+)*" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="SexoSimple">
+    <xs:simpleType name="LetraSexo">
         <xs:restriction base="xs:string">
             <xs:enumeration value="V" />
             <xs:enumeration value="H" />
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="ContactoComplejo">
+    <xs:complexType name="Contacto">
         <xs:sequence>
-            <xs:element name="email" type="EmailSimple" />
-            <xs:element name="telefono" type="TelefonoSimple" />
+            <xs:element name="email" type="Email" />
+            <xs:element name="telefono" type="Telefono" />
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="DireccionComplejo">
+    <xs:complexType name="Direccion">
         <xs:sequence>
             <xs:element name="calle" type="xs:string" />
             <xs:element name="ciudad" type="xs:string" />
@@ -54,15 +48,44 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="EmpleadoComplejo">
+    <xs:complexType name="Contratado">
         <xs:sequence>
-            <xs:element name="nombre" />
-            <xs:element name="sexo" />
-            <xs:element name="contacto" type="ContactoComplejo" />
-            <xs:element name="departamento" />
+            <xs:element name="nombre" type="NombrePropio" />
+            <xs:element name="sexo" type="LetraSexo" />
+            <xs:element name="contacto" type="Contacto" />
+            <xs:element name="departamento" type="RefDepartamento" />
         </xs:sequence>
-        <xs:attribute name="codigo" type="CodigoSimple" use="required" />
     </xs:complexType>
+
+    <xs:simpleType name="IdEmpleado">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="E\d{3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="IdConsultor">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="C\d{3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="IdDepartamento">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="D\d{3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="RefDepartamento">
+        <xs:restriction base="xs:IDREF">
+            <xs:pattern value="D\d{3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="RefsContratados">
+        <xs:restriction base="xs:IDREFS">
+            <xs:pattern value="[EC]\d{3}(\s[EC]\d{3})*" />
+        </xs:restriction>
+    </xs:simpleType>
 
     <!-- Elemento Raíz -->
 
@@ -73,9 +96,17 @@
                 <xs:element name="empleados">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="empleado" type="EmpleadoComplejo"
-                                minOccurs="0"
-                                maxOccurs="unbounded" />
+
+                            <xs:element name="empleado" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="Contratado">
+                                            <xs:attribute name="codigo" type="IdEmpleado" />
+                                        </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -83,17 +114,20 @@
                 <xs:element name="consultores">
                     <xs:complexType>
                         <xs:sequence>
+
                             <xs:element name="consultor" minOccurs="1" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:complexContent>
-                                        <xs:extension base="EmpleadoComplejo">
+                                        <xs:extension base="Contratado">
                                             <xs:sequence>
                                                 <xs:element name="empresaExterna" type="xs:string" />
                                             </xs:sequence>
+                                            <xs:attribute name="codigo" type="IdConsultor" />
                                         </xs:extension>
                                     </xs:complexContent>
                                 </xs:complexType>
                             </xs:element>
+
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -105,18 +139,12 @@
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="nombre" type="xs:string" />
-                                        <xs:element name="director" type="NombreSimple" />
-                                        <xs:element name="empleados">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="empleado" type="CodigoSimple"
-                                                        minOccurs="1" maxOccurs="unbounded" />
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="direccion" />
+                                        <xs:element name="director" type="NombrePropio" />
+                                        <xs:element name="empleados" type="RefsContratados" />
+                                        <xs:element name="direccion" type="Direccion" />
                                     </xs:sequence>
-                                    <xs:attribute name="codigo" type="CodigoSimple" use="required" />
+                                    <xs:attribute name="codigo" type="IdDepartamento"
+                                        use="required" />
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>

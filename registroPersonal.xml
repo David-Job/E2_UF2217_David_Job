@@ -28,7 +28,7 @@
 
         <empleado codigo="E003">
             <nombre>Nereida Candella</nombre>
-            <sexo>F</sexo>
+            <sexo>H</sexo>
             <contacto>
                 <email>necan@outlook.com</email>
                 <telefono>624305240</telefono>
@@ -38,7 +38,7 @@
 
         <empleado codigo="E004">
             <nombre>Antonina Fernandez</nombre>
-            <sexo>F</sexo>
+            <sexo>H</sexo>
             <contacto>
                 <email>af@gmail.com</email>
                 <telefono>848281695</telefono>
@@ -58,7 +58,7 @@
 
         <empleado codigo="E006">
             <nombre>Lula Salinas</nombre>
-            <sexo>F</sexo>
+            <sexo>H</sexo>
             <contacto>
                 <email>lsal@yandex.com</email>
                 <telefono>773034987</telefono>
@@ -68,7 +68,7 @@
 
         <empleado codigo="E007">
             <nombre>Concetta Gutiérrez</nombre>
-            <sexo>F</sexo>
+            <sexo>H</sexo>
             <contacto>
                 <email>cgut@protonmail.com</email>
                 <telefono>801667731</telefono>
@@ -186,11 +186,11 @@
             <nombre>Finanzas</nombre>
             <director>Marisa Tamayo</director>
             <empleados>
-                <empleado>E001</empleado>
-                <empleado>E005</empleado>
-                <empleado>E009</empleado>
-                <empleado>C001</empleado>
-                <empleado>C005</empleado>
+                E001
+                E005
+                E009
+                C001
+                C005
             </empleados>
             <direccion>
                 <calle>Colonia Inés Ulibarri</calle>
@@ -203,11 +203,11 @@
             <nombre>Ventas</nombre>
             <director>Amador Sanchez</director>
             <empleados>
-                <empleado>E002</empleado>
-                <empleado>E006</empleado>
-                <empleado>E010</empleado>
-                <empleado>C002</empleado>
-                <empleado>C006</empleado>
+                E002
+                E006
+                E010
+                C002
+                C006
             </empleados>
             <direccion>
                 <calle>Salida Luis</calle>
@@ -220,9 +220,9 @@
             <nombre>Recursos Humanos</nombre>
             <director>Lucilla Padron</director>
             <empleados>
-                <empleado>E003</empleado>
-                <empleado>E007</empleado>
-                <empleado>C003</empleado>
+                E003
+                E007
+                C003
             </empleados>
             <direccion>
                 <calle>Muelle Claudio Tapia</calle>
@@ -235,15 +235,14 @@
             <nombre>Investigacion y Desarrollo</nombre>
             <director>Manuel Monedero</director>
             <empleados>
-                <empleado>E004</empleado>
-                <empleado>E008</empleado>
-                <empleado>C004</empleado>
+                E004
+                E008
+                C004
             </empleados>
             <direccion>
                 <calle>Extrarradio Gloria Palomino</calle>
-                <ciudad>Colinas Esterlinas</ciudad>
-                <codigoPostal>
-                30559</codigoPostal>
+                <ciudad>Esterlinas</ciudad>
+                <codigoPostal>30559</codigoPostal>
             </direccion>
         </departamento>
 
