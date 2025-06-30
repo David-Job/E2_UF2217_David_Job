@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://www.ejemplo.com"
+    xmlns="https://www.ejemplo.com"
+    elementFormDefault="qualified">
+
+    <!-- Definición de tipos -->
+
+    <xs:simpleType name="EmailSimple">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9\-._]+\@[a-z]+\.[a-z]+" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="TelefonoSimple">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{9}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="CodigoSimple">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[ECD][0-9]{3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="NombreSimple">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z][a-z]+( [A-Z][a-z]+)*" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SexoSimple">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="V" />
+            <xs:enumeration value="H" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="ContactoComplejo">
+        <xs:sequence>
+            <xs:element name="email" type="EmailSimple" />
+            <xs:element name="telefono" type="TelefonoSimple" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DireccionComplejo">
+        <xs:sequence>
+            <xs:element name="calle" type="xs:string" />
+            <xs:element name="ciudad" type="xs:string" />
+            <xs:element name="codigoPostal" type="xs:integer" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="EmpleadoComplejo">
+        <xs:sequence>
+            <xs:element name="nombre" />
+            <xs:element name="sexo" />
+            <xs:element name="contacto" type="ContactoComplejo" />
+            <xs:element name="departamento" />
+        </xs:sequence>
+        <xs:attribute name="codigo" type="CodigoSimple" use="required" />
+    </xs:complexType>
+
+    <!-- Elemento Raíz -->
+
+    <xs:element name="registroPersonal">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="empleados">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="empleado" type="EmpleadoComplejo"
+                                minOccurs="0"
+                                maxOccurs="unbounded" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="consultores">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="consultor" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="EmpleadoComplejo">
+                                            <xs:sequence>
+                                                <xs:element name="empresaExterna" type="xs:string" />
+                                            </xs:sequence>
+                                        </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="departamentos">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="departamento" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string" />
+                                        <xs:element name="director" type="NombreSimple" />
+                                        <xs:element name="empleados">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="empleado" type="CodigoSimple"
+                                                        minOccurs="1" maxOccurs="unbounded" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="direccion" />
+                                    </xs:sequence>
+                                    <xs:attribute name="codigo" type="CodigoSimple" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
