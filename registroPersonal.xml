@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="registroPersonal.xsl" type="text/xsl"?>
 <registroPersonal
-    xmlns="https://www.ejemplo.com"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://www.ejemplo.com registroPersonal.xsd">
+    xsi:noNamespaceSchemaLocation="registroPersonal.xsd">
 
     <empleados>
-
         <empleado codigo="E001">
             <nombre>Pancho Rodríguez</nombre>
             <sexo>V</sexo>
@@ -13,7 +12,7 @@
                 <email>prod@yahoo.com</email>
                 <telefono>768506530</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento codigo="D001" />
         </empleado>
 
         <empleado codigo="E002">
@@ -23,7 +22,7 @@
                 <email>rortiz@gmail.com</email>
                 <telefono>797605910</telefono>
             </contacto>
-            <departamento>D002</departamento>
+            <departamento codigo="D002" />
         </empleado>
 
         <empleado codigo="E003">
@@ -33,7 +32,7 @@
                 <email>necan@outlook.com</email>
                 <telefono>624305240</telefono>
             </contacto>
-            <departamento>D003</departamento>
+            <departamento codigo="D003" />
         </empleado>
 
         <empleado codigo="E004">
@@ -43,7 +42,7 @@
                 <email>af@gmail.com</email>
                 <telefono>848281695</telefono>
             </contacto>
-            <departamento>D004</departamento>
+            <departamento codigo="D004" />
         </empleado>
 
         <empleado codigo="E005">
@@ -53,7 +52,7 @@
                 <email>nelioc@aol.com</email>
                 <telefono>744279892</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento codigo="D001" />
         </empleado>
 
         <empleado codigo="E006">
@@ -63,7 +62,7 @@
                 <email>lsal@yandex.com</email>
                 <telefono>773034987</telefono>
             </contacto>
-            <departamento>D002</departamento>
+            <departamento codigo="D002" />
         </empleado>
 
         <empleado codigo="E007">
@@ -73,7 +72,7 @@
                 <email>cgut@protonmail.com</email>
                 <telefono>801667731</telefono>
             </contacto>
-            <departamento>D003</departamento>
+            <departamento codigo="D003" />
         </empleado>
 
         <empleado codigo="E008">
@@ -83,7 +82,7 @@
                 <email>rag@hotmail.com</email>
                 <telefono>720216041</telefono>
             </contacto>
-            <departamento>D004</departamento>
+            <departamento codigo="D004" />
         </empleado>
 
         <empleado codigo="E009">
@@ -93,7 +92,7 @@
                 <email>lescarra@tuta.com</email>
                 <telefono>667533346</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento codigo="D001" />
         </empleado>
 
         <empleado codigo="E010">
@@ -103,14 +102,12 @@
                 <email>briandg@live.com</email>
                 <telefono>607366967</telefono>
             </contacto>
-            <departamento>D002</departamento>
+            <departamento codigo="D002" />
         </empleado>
-
     </empleados>
 
 
     <consultores>
-
         <consultor codigo="C001">
             <nombre>Nemesio Rodríguez</nombre>
             <sexo>H</sexo>
@@ -118,7 +115,7 @@
                 <email>nemesi5@aol.com</email>
                 <telefono>635008474</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento codigo="D001" />
             <empresaExterna>Quaerat</empresaExterna>
         </consultor>
 
@@ -129,7 +126,7 @@
                 <email>alba_beta@protonmail.com</email>
                 <telefono>856252931</telefono>
             </contacto>
-            <departamento>D002</departamento>
+            <departamento codigo="D002" />
             <empresaExterna>Possimus</empresaExterna>
         </consultor>
 
@@ -140,7 +137,7 @@
                 <email>2vargas@yandex.com</email>
                 <telefono>664527044</telefono>
             </contacto>
-            <departamento>D003</departamento>
+            <departamento codigo="D003" />
             <empresaExterna>Earum</empresaExterna>
         </consultor>
 
@@ -151,7 +148,7 @@
                 <email>ninja_gomez@aol.com</email>
                 <telefono>600888157</telefono>
             </contacto>
-            <departamento>D004</departamento>
+            <departamento codigo="D004" />
             <empresaExterna>Commodi</empresaExterna>
         </consultor>
 
@@ -162,7 +159,7 @@
                 <email>laramona@yahoo.com</email>
                 <telefono>842359077</telefono>
             </contacto>
-            <departamento>D001</departamento>
+            <departamento codigo="D001" />
             <empresaExterna>Voluptates</empresaExterna>
         </consultor>
 
@@ -173,25 +170,16 @@
                 <email>maxescarra@outlook.com</email>
                 <telefono>874430559</telefono>
             </contacto>
-            <departamento>D002</departamento>
+            <departamento codigo="D002" />
             <empresaExterna>Vero</empresaExterna>
         </consultor>
-
     </consultores>
 
 
     <departamentos>
-
         <departamento codigo="D001">
             <nombre>Finanzas</nombre>
             <director>Marisa Tamayo</director>
-            <empleados>
-                E001
-                E005
-                E009
-                C001
-                C005
-            </empleados>
             <direccion>
                 <calle>Colonia Inés Ulibarri</calle>
                 <ciudad>La Mesa</ciudad>
@@ -202,13 +190,6 @@
         <departamento codigo="D002">
             <nombre>Ventas</nombre>
             <director>Amador Sanchez</director>
-            <empleados>
-                E002
-                E006
-                E010
-                C002
-                C006
-            </empleados>
             <direccion>
                 <calle>Salida Luis</calle>
                 <ciudad>Tuscaloosa</ciudad>
@@ -219,11 +200,6 @@
         <departamento codigo="D003">
             <nombre>Recursos Humanos</nombre>
             <director>Lucilla Padron</director>
-            <empleados>
-                E003
-                E007
-                C003
-            </empleados>
             <direccion>
                 <calle>Muelle Claudio Tapia</calle>
                 <ciudad>San Diego</ciudad>
@@ -234,17 +210,11 @@
         <departamento codigo="D004">
             <nombre>Investigacion y Desarrollo</nombre>
             <director>Manuel Monedero</director>
-            <empleados>
-                E004
-                E008
-                C004
-            </empleados>
             <direccion>
                 <calle>Extrarradio Gloria Palomino</calle>
                 <ciudad>Esterlinas</ciudad>
                 <codigoPostal>30559</codigoPostal>
             </direccion>
         </departamento>
-
     </departamentos>
 </registroPersonal>
