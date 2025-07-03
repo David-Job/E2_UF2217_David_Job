@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="tipos.xsd" />
+    <xs:complexType name="Departamentos">
+        <xs:sequence>
+            <xs:element name="departamento" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="nombre" type="xs:string" />
+                        <xs:element name="director" type="NombrePropio" />
+                        <xs:element name="direccion" type="Direccion" />
+                    </xs:sequence>
+                    <xs:attribute name="codigo" type="IdDepartamento"
+                        use="required" />
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
